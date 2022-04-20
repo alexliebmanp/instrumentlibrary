@@ -2,6 +2,8 @@ Orenstein Lab Instrument Library
 
 This code streamlines the process of introducing a new device into the Orenstein Lab python environment, allowing user to specify all device-specific instructions for communication. It is basically a convenient wrapper for a number of python libraries such as pyVISA and pySerial.
 
+Dependencies: pyvisa, pyvisa-py, pyserial
+
 At the core of this library is the generic Device class, which establishes communication via desired comm protocol with the device, keeps a dictionary of commands, and reads/writes to the device. Actual instruments are then implemented via subclasses, which are written in the image of 'instrument_template'. The user provides information on the communication standards and the commands (eg, SPCI commands), and with a few lines of code gain access to the instrument.
 
 User responsibilities:
