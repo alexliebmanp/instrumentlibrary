@@ -10,14 +10,12 @@ To summarize, the workflow is as follows:
 (1) Write a new device class in a separate module (eg, keithlyXYZ.py contains the KeithlyXCY class)
 (2) import KeithlyXYZ into a specific application and use, for example:
 
-'''python
-{
+```python
 from instrumentlibrary import keithlyXYZ as kth
 
 current_source = kth.KeithlyXCZ.(address) # initializes the connection
 current_source.write('Set Current', 1) # executes a command
-}
-'''
+```
 
 User responsibilities:
 
