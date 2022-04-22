@@ -33,20 +33,20 @@ class RP100(device.Device):
         ######################
         ## User Input Here ###
         ######################
-        communication_args = {'Protocol':'Serial_VISA', 'Address':'1', 'ErrorScheme':'', 'Baud':9600, 'Terminator':'\n'}
-        commands = {'System clear':'*CLS',
-         'Reset device':'*RST',
-         'Set output relay on or off':'OUTP# <bool>',
-         'Query ouput relay':'OUTP#?',
-         'Set output voltage':'SOUR#:VOLT <float>',
-         'Query output voltage':'SOUR#:VOLT:NOW?',
-         'Query output setpoint':'SOUR#:VOLT?',
-         'Set voltage slew rate':'SOUR#:VOLT:SLEW <float>',
-         'Query voltage slew rate':'SOUR#:VOLT:SLEW?',
-         'Measure output voltage':'MEAS#:VOLT?',
-         'Measure output currrent':'MEAS#[:CURR?',
-         'Get last error':'SYST:ERR?',
-         'Get number of errors':'SYST:ERR:COUN?'}
+        communication_args = {'Protocol':'Serial_VISA', 'Address':'ASRL5', 'ErrorScheme':'', 'Baud':9600, 'Terminator':'\n'}
+        commands = {'System clear':('*CLS', False),
+         'Reset device':('*RST', False),
+         'Set output relay on or off':('OUTP# <bool>', False),
+         'Query ouput relay':('OUTP#?', False),
+         'Set output voltage':('SOUR#:VOLT <float>', False),
+         'Query output voltage':('SOUR#:VOLT:NOW?', False),
+         'Query output setpoint':('SOUR#:VOLT?', False),
+         'Set voltage slew rate':('SOUR#:VOLT:SLEW <float>', False),
+         'Query voltage slew rate':('SOUR#:VOLT:SLEW?', False),
+         'Measure output voltage':('MEAS#:VOLT?', False),
+         'Measure output currrent':('MEAS#[:CURR?', False),
+         'Get last error':('SYST:ERR?', False),
+         'Get number of errors':('SYST:ERR:COUN?', False)}
         ######################
         ######################
         ######################

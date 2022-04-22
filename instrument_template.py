@@ -21,12 +21,13 @@ class Instrument(device.Device):
 
             - communication_args: dictionary, communication protocol specifications
 
-            - commands: dictionary, command strings for communicating with device.
+            - commands: dictionary, command strings for communicating with device. Each key:value pair should be structured 'Command Description':('Command', Bool), where Bool is true for status commands.
         '''
 
         ######################
         ## User Input Here ###
         ######################
+        # see pyVISA documentation for resource naming conventions: https://pyvisa.readthedocs.io/en/1.8/names.html
         communication_args = {'Protocol':'', 'Address':'1', 'ErrorScheme':'', 'Baud':9600, 'Terminator':''}
         commands = {}
         ######################

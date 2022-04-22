@@ -109,6 +109,7 @@ class Serial:
 
         - connection: communication connection '''
 
+        print(self.address)
         connection = self.ResourceManager.open_resource(self.address)
         return connection
 

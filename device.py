@@ -18,7 +18,7 @@ class Device:
 
     The command structure for each device may differ, as do the content of the communication strings sent over the wire. Standard error detection protocols are provided, as is device-specific expression.
 
-    All available communication strings are stored in a dictionary with key:value pairs corresponding to a Plain Text name for the command saved with with associated command-string.
+    All available communication strings are stored in a dictionary with key:value pairs corresponding to a Plain Text name for the command saved with with associated command-string. Each key:value pair should be structured 'Command Description':('Command', Bool), where Bool is true for status commands.
 
     A typical byte string is going to include:
 
@@ -76,9 +76,9 @@ class Device:
         '''
 
         if connection_args['Protocol'] == 'GPIB':
-            connection = visa.GPIB(connection_args)
+            connection = visa_module.GPIB(connection_args)
         elif connection_args['Protocol'] == 'Serial_VISA':
-            connection = visa.Serial(connection_args)
+            connection = visa_module.Serial(connection_args)
         elif connection_args['Protocol'] == 'RS232':
             connection = serial.RS232(connection_args)
         else:
@@ -106,7 +106,7 @@ class Device:
 
             - CommandTable: dictionary of all commands
 
-            - StatusCommands: dictionary, subset of all commands relevant to status updates
+            - StatusCommands: dictionary, subset of all commands relevant to status updates (Bool set to True)
 
             - Status: dictionary, container for status information in string format
 
