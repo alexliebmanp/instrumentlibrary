@@ -34,3 +34,5 @@ class Instrument(device.Device):
         ######################
 
         self.initialize_device(name, communication_args, commands)
+
+        ## any other code you want to run to initialize the device.

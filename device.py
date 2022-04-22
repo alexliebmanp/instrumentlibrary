@@ -10,6 +10,7 @@ import time
 from . import gpib_module as gpib
 from . import serial_module as serial
 from . import custom_module as custom
+from . import serial_visa_module as serial_visa
 
 class Device:
 
@@ -79,11 +80,17 @@ class Device:
             connection = gpib.GPIB(connection_args)
         elif connection_args['Protocol'] == 'RS232':
             connection = serial.RS232(connection_args)
+        elif connection_args['Protocol'] == 'Serial_VISA':
+            connection = serial_visa.Serial(connection_args)
         else:
             print('LCMI is not familiar with the {:s} protocol. You will have to give us more information.'.format(connection_args['Protocol']))
             connection = custom.Custom(connection_args)
 
         return connection
+
+    def close_connection(self):
+
+        return self.connection.close()
 
     def instantiate_commands(self,all_commands):
 
@@ -151,8 +158,6 @@ class Device:
         '''
         print('\n'.join([' {:s} | {:s} |'.format(si,self.Status[si]) for si in self.Status]))
 
-
-
     def write(self,message):
 
         return self.connection.write(message)
@@ -160,3 +165,7 @@ class Device:
     def read(self):
 
         return self.connection.read()
+
+    def query(self, query_message):
+
+        return self.connection.query(query_message)
