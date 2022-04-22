@@ -7,10 +7,9 @@
 
 import datetime as dt
 import time
-from . import gpib_module as gpib
+from . import visa_module
 from . import serial_module as serial
 from . import custom_module as custom
-from . import serial_visa_module as serial_visa
 
 class Device:
 
@@ -77,11 +76,11 @@ class Device:
         '''
 
         if connection_args['Protocol'] == 'GPIB':
-            connection = gpib.GPIB(connection_args)
+            connection = visa.GPIB(connection_args)
+        elif connection_args['Protocol'] == 'Serial_VISA':
+            connection = visa.Serial(connection_args)
         elif connection_args['Protocol'] == 'RS232':
             connection = serial.RS232(connection_args)
-        elif connection_args['Protocol'] == 'Serial_VISA':
-            connection = serial_visa.Serial(connection_args)
         else:
             print('LCMI is not familiar with the {:s} protocol. You will have to give us more information.'.format(connection_args['Protocol']))
             connection = custom.Custom(connection_args)
