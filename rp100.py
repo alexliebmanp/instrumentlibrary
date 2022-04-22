@@ -39,7 +39,7 @@ class RP100(device.Device):
          'Set output relay on or off':'OUTP# <bool>',
          'Query ouput relay':'OUTP#?',
          'Set output voltage':'SOUR#:VOLT <float>',
-         'Query output voltage':'SOUR#:VOLT:NOW?'
+         'Query output voltage':'SOUR#:VOLT:NOW?',
          'Query output setpoint':'SOUR#:VOLT?',
          'Set voltage slew rate':'SOUR#:VOLT:SLEW <float>',
          'Query voltage slew rate':'SOUR#:VOLT:SLEW?',

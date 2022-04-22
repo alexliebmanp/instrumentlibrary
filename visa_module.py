@@ -5,7 +5,7 @@ Created on Mon Jun 29 17:16:35 2020
 
 @author: ryanday
 """
-import visa
+import pyvisa as visa
 
 class GPIB:
 
